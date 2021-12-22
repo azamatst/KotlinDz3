@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KotlinDz3</string>
+    <string name="send">Send</string>
+    <string name="sheep_avatar">sheep avatar</string>
 </resources>

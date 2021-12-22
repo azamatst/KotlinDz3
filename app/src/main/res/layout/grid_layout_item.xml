@@ -20,7 +20,8 @@
             android:src="@drawable/img"
             android:layout_width="90dp"
             android:layout_margin="8dp"
-            android:layout_height="90dp" />
+            android:layout_height="90dp"
+            android:contentDescription="@string/sheep_avatar" />
     </RelativeLayout>
 
     <View

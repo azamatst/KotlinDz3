@@ -13,7 +13,7 @@
         android:id="@+id/btn_send"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="Send"
+        android:text="@string/send"
         />
 
     <androidx.recyclerview.widget.RecyclerView
