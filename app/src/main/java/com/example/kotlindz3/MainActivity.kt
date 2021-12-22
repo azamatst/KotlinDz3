@@ -9,9 +9,6 @@ import com.example.kotlindz3.adapters.GoatAdapters
 import com.example.kotlindz3.databinding.ActivityMainBinding
 import android.content.Intent
 
-
-
-
 class MainActivity : AppCompatActivity(), GoatAdapters.OnItemClickListener {
 
     private lateinit var binding: ActivityMainBinding
