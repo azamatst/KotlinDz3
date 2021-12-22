@@ -12,10 +12,10 @@ import android.content.Intent
 class MainActivity : AppCompatActivity(), GoatAdapters.OnItemClickListener {
 
     private lateinit var binding: ActivityMainBinding
-    private var recycler: RecyclerView? = null
-    private var grid: GridLayoutManager? = null
-    private var arrayList: ArrayList<Int>? = null
-    private var goatAdapters: GoatAdapters? = null
+    private lateinit var recycler: RecyclerView
+    private lateinit var grid: GridLayoutManager
+    private lateinit var arrayList: ArrayList<Int>
+    private lateinit var goatAdapters: GoatAdapters
     private var favoritesList = arrayListOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,24 +25,23 @@ class MainActivity : AppCompatActivity(), GoatAdapters.OnItemClickListener {
 
         recycler = findViewById(R.id.recycler_view)
         grid = GridLayoutManager(applicationContext, 3, LinearLayoutManager.VERTICAL, false)
-        recycler?.layoutManager = grid
-        recycler?.setHasFixedSize(true)
+        recycler.layoutManager = grid
+        recycler.setHasFixedSize(true)
         arrayList = ArrayList()
         arrayList = setDataInList()
-        goatAdapters = GoatAdapters(arrayList!!)
-        goatAdapters!!.setOnItemClickListener(this)
-        recycler?.adapter = goatAdapters
+        goatAdapters = GoatAdapters(arrayList)
+        goatAdapters.setOnItemClickListener(this)
+        recycler.adapter = goatAdapters
 
         binding.btnSend.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("Yrys",favoritesList)
+            intent.putExtra(MAIN_ACTIVITY_EXTRA,favoritesList)
             startActivity(intent)
         }
     }
 
     private fun setDataInList(): ArrayList<Int> {
 
-//        val items: ArrayList<GoatChar> = ArrayList()
         val items = arrayListOf<Int>()
         for (i in 0..14) {
             items.add(R.drawable.img)
@@ -56,5 +55,9 @@ class MainActivity : AppCompatActivity(), GoatAdapters.OnItemClickListener {
 
     override fun onDelete(goatChar: Int) {
         favoritesList.remove(goatChar)
+    }
+
+    companion object {
+        const val MAIN_ACTIVITY_EXTRA = "imageKey"
     }
 }

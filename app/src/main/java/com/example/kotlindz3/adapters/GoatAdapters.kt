@@ -27,7 +27,7 @@ class GoatAdapters(
 
     override fun getItemCount(): Int = list.size
 
-    fun setOnItemClickListener(onItemClickListener: OnItemClickListener){
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
         this.onItemClickListener = onItemClickListener
     }
 
@@ -41,7 +41,7 @@ class GoatAdapters(
                 if (binding.blackTint.visibility == View.GONE) {
                     binding.blackTint.visibility = View.VISIBLE
                     onItemClickListener.onSave(goatChar)
-                }else {
+                } else {
                     binding.blackTint.visibility = View.GONE
                     onItemClickListener.onDelete(goatChar)
                 }
@@ -49,7 +49,7 @@ class GoatAdapters(
         }
     }
 
-    interface OnItemClickListener{
+    interface OnItemClickListener {
         fun onSave(goatChar: Int)
         fun onDelete(goatChar: Int)
     }
